@@ -25,3 +25,8 @@ jobs:
       - run: |
           docker build ./project -t mehulsacr.azurecr.io/generic:latest
           docker push mehulsacr.azurecr.io/generic:latest
+      - name: "Trigger Webhook"
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: |
+          curl -X POST -d '' "${WEBHOOK_URL}"

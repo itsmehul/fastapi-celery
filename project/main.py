@@ -11,7 +11,7 @@ templates = Jinja2Templates(directory="templates")
 
 
 # health check
-@app.get("/health")
+@app.get("/healthy")
 def health():
     return {"status": "ok"}
 
