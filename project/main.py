@@ -6,6 +6,7 @@ from fastapi.templating import Jinja2Templates
 from worker import create_task
 
 app = FastAPI()
+app.config["PREFERRED_URL_SCHEME"] = "https"
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
